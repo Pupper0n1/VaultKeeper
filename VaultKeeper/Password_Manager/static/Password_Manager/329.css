@@ -1,0 +1,18 @@
+#rightCardText {
+    display: flex;
+  }
+  
+#rightCardFill {
+    flex: 1;
+  }
+
+#opposite_sides {
+    display: flex;
+    justify-content: space-between;
+  }
+
+.password_form_label {
+    font-weight: bold;
+    font-size: 16px;
+    color: #e11414;
+  }

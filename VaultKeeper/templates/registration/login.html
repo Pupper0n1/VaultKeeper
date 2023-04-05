@@ -1,0 +1,32 @@
+{% extends 'Password_Manager/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div id="login_box" class="row justify-content-center">
+            <div class="col-md-6 bg-light p-5 rounded">
+                <h1 class="display-4">Login</h1>
+                <p class="lead">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia possimus, expedita natus accusamus incidunt cum consequuntur quam id laudantium tempora explicabo harum ipsam autem maiores, eveniet fuga quia atque fugiat.</p>
+            </div>
+
+            <div class="col-md-6 p-5" id="login_form">
+                <form method="POST">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="mb-3">
+                            {{field.label_tag}}{{field}}
+                        </div>
+                    {% endfor %}
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-warning"><a href="{% url 'Password_Manager:signup' %}" style="text-decoration:none; color:black">Don't have an account?</a></button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
