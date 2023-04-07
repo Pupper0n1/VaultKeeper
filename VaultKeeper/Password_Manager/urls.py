@@ -12,5 +12,5 @@ urlpatterns = [
     path('accounts/login/', views.CustomLoginView.as_view(), name='login'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/login/passwords/', views.password_view),
-   
+    path('accounts/logout/thankyou/', views.thankyou_view, name='thankyou')
 ]
