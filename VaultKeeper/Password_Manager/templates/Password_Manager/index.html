@@ -1,6 +1,7 @@
 {% extends 'Password_Manager/base.html' %}
 {% block content %}
 
+<body style = "background-color:#e1e6e2">
   <div class="container-fluid p-5" style="width: 100% ; background-color:#76b5c5;">
     <h1 class="display-4" style="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: white;">Experience peace of mind <br> with our easy-to-use, secure <br> password manager.</h1>
     {% if request.user.is_authenticated %}
@@ -9,23 +10,65 @@
         <p class="lead" style = "font-family: 'Josefin Sans', sans-serif; font-weight:400; color: black;">Log in to start!</p>
     {% endif %}
 
-
     <hr class="my-4">
-    <button type="button" class="btn" style="background-color:#D1D1D1; font-family: 'Josefin Sans', sans-serif; font-weight:400; color: black;">VaultKeeper Plus</button>
-    <br><br><button type="button" class="btn" style="background-color:#D1D1D1; font-family: 'Josefin Sans', sans-serif; font-weight:400; color: black;"> About us </button>
+    <button type="button" class="btn" style="background-color:#e1e6e2; font-family: 'Josefin Sans', sans-serif; font-weight:400; color: black;">Vault Keeper Plus</button>
+    <br><br><button type="button" class="btn" style="background-color:#e1e6e2; font-family: 'Josefin Sans', sans-serif; font-weight:400; color: black;"> About us </button>
 
      
     <p></p>
   </div>
 
-  <br><br><br><br><br><br><br>
+  <br><br><br>
 
-  <div class="container-fluid bg-light p-5" style="width: 79%;">
-    <h1 class="display-4">Jumbotron</h1>
-    <p class="lead">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia possimus, expedita natus accusamus incidunt cum consequuntur quam id laudantium tempora explicabo harum ipsam autem maiores, eveniet fuga quia atque fugiat.</p>
+  <div class="container-fluid p-5" style="width: 98.6%; background-color:#76b5c5">
+    <h1 class="display-4" style="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: white;">Why should we use the Vault Keeper password management tool to secure our sensitive data?</h1>
+    <p class="lead"></p>
     <hr class="my-4">
-    <p>Exercitation elit culpa dolore esse id. Commodo nisi laborum mollit aliquip anim nostrud minim. Non velit deserunt veniam et. Labore sit esse nisi Lorem. Magna pariatur veniam elit nulla.
-Amet commodo irure aute eiusmod tempor fugiat laborum magna velit laborum. Minim cillum ipsum elit commodo sunt id ipsum enim consequat veniam id reprehenderit nisi. Officia duis qui ad exercitation exercitation laborum aliqua ut esse ex velit occaecat consectetur.
-Minim ipsum ipsum officia minim eu amet. Sunt exercitation proident fugiat qui exercitation eiusmod qui. Occaecat occaecat fugiat tempor adipisicing fugiat proident sunt in laboris deserunt anim pariatur culpa est. Velit quis eiusmod non cillum labore amet consequat est deserunt et magna cillum. Elit nulla tempor consequat proident. Occaecat laborum cillum exercitation eiusmod cupidatat do commodo.</p>
-  </div>
+    <p style = "font-family: 'Josefin Sans', sans-serif; font-weight:400; color: black;" = >Using a password management tool like Vault Keeper can help ensure the security of sensitive data by creating and storing strong, unique passwords for each account or system. This reduces the risk of weak passwords or password reuse, which can be exploited by attackers to gain unauthorized access to sensitive data. Vault Keeper can also provide secure 
+      storage for other sensitive information such as credit card details, identification documents, or secure notes.
+      <br> Due to people frequently using the same passwords or choosing weak ones that are simple to guess, there has been an increase in password-related security breaches. According to Verizon’s 2022 Data Breach Investigations Report, 81% of the hacking related data breaches are due to weak or stolen passwords. This is up from 63% in 2016, 
+      also according to Verizon’s report, indicating a clear upward trend in password-related security breaches.
+        keeps your passwords safe and secure with a strong encryption algorithm.
+      <br><br></p>
+    <p class="text-center" style = "font-family: 'Josefin Sans', sans-serif; font-weight:400; color: black; font-size: 2em">  Never forget a password again with Vault Keeper by your side!</p>
+    </div>
+
+    <br><br><br>
+
+    <div class="row mx-md-n5">
+      <div class="col px-md-5">
+      <div class="p-3" style = "height:460px; background-color:#76b5c5">
+      <h1 class="my-4; text-center" style="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: white;">EASY</h1>
+      <br><br><br><br><br><br><br><br><br><br><br><p class ="text-center" style ="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: black;" => Vault Keeper's user-friendly interface and intuitive 
+        design makes it easy for you to navigate and manage your passwords, and our password generator makes it easy to create strong, unique passwords for each account.
+      </p>
+      </div></div>
+
+      <div class="col px-md-5">
+      <div class="p-3" style = "height:460px; background-color:#76b5c5">
+      <h1 class="my-4; text-center" style="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: white;">SECURE</h1>
+      <br><br><br><br><br><br><br><br><br><br><br><p class ="text-center" style ="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: black;" => Vault Keeper uses SHA-256 encryption to protect your passwords and other sensitive information, making it virtually impossible for hackers to access your data.</p>
+      </div></div>
+
+      <div class="col px-md-5">
+      <div class="p-3" style = "height:460px; background-color:#76b5c5">
+      <h1 class="my-4; text-center" style="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: white;">RELIABLE</h1>
+      <br><br><br><br><br><br><br><br><br><br><br><p class ="text-center" style ="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: black;" => Vault Keeper's advanced encryption algorithms ensure that your passwords are secure and protected from hackers and other malicious actors.</p>
+      </div></div>
+
+    </div>
+    
+    <br><br><br>
+
+    <div class="container-fluid p-5" style="width: 98.6%; height: 400px; background-color:#76b5c5">
+      <h1 class="display-4 text-center" style="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: white;">Protecting your privacy and securing your digital life, one password at a time.</h1>
+      <p class="lead"></p>
+      <hr class="my-4">
+      <h2 class="my-4" style = "font-family: 'Josefin Sans', sans-serif; font-weight:400; color: black; font-size: 1.5em">Reach out to us!</h2>
+      <p class="text-center" style = "font-family: 'Josefin Sans', sans-serif; font-weight:400; color: black; font-size: 2em"> //instagram or email or discord logo</p> 
+      <p class = "text-center">&copy Vault Keeper 2023</p>
+      </div>
+    </body>
+
 {% endblock %}
+
