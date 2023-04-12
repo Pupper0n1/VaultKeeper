@@ -1,19 +1,20 @@
 {% extends 'Password_Manager/base.html' %}
 {% block content %}
 
-  <div class="container-fluid p-5" style="width: 100%; background-color:#76b5c5;">
-    <h1 class="display-4" style="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: white;">Experience peace of mind with our easy-to-use, secure password manager.</h1>
-
+  <div class="container-fluid p-5" style="width: 100% ; background-color:#76b5c5;">
+    <h1 class="display-4" style="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: white;">Experience peace of mind <br> with our easy-to-use, secure <br> password manager.</h1>
     {% if request.user.is_authenticated %}
-        <p class="lead">You are logged in</p>
+        <p class="lead" style = "font-family: 'Josefin Sans', sans-serif; font-weight:400; color: black;">You are logged in</p>
     {% else %}
-        <p class="lead">Log in to start!</p>
+        <p class="lead" style = "font-family: 'Josefin Sans', sans-serif; font-weight:400; color: black;">Log in to start!</p>
     {% endif %}
 
+
     <hr class="my-4">
-    <p>Exercitation elit culpa dolore esse id. Commodo nisi laborum mollit aliquip anim nostrud minim. Non velit deserunt veniam et. Labore sit esse nisi Lorem. Magna pariatur veniam elit nulla.
-Amet commodo irure aute eiusmod tempor fugiat laborum magna velit laborum. Minim cillum ipsum elit commodo sunt id ipsum enim consequat veniam id reprehenderit nisi. Officia duis qui ad exercitation exercitation laborum aliqua ut esse ex velit occaecat consectetur.
-Minim ipsum ipsu m officia minim eu amet. Sunt exercitation proident fugiat qui exercitation eiusmod qui. Occaecat occaecat fugiat tempor adipisicing fugiat proident sunt in laboris deserunt anim pariatur culpa est. Velit quis eiusmod non cillum labore amet consequat est deserunt et magna cillum. Elit nulla tempor consequat proident. Occaecat laborum cillum exercitation eiusmod cupidatat do commodo.</p>
+    <button type="button" class="btn" style="background-color:#D1D1D1; font-family: 'Josefin Sans', sans-serif; font-weight:400; color: black;">VaultKeeper Plus</button>
+    <br><br><button type="button" class="btn" style="background-color:#D1D1D1; font-family: 'Josefin Sans', sans-serif; font-weight:400; color: black;"> About us </button>
+
+    <p></p>
   </div>
 
   <br><br><br><br><br><br><br>
