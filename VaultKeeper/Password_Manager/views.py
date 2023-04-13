@@ -8,6 +8,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.views import LoginView, PasswordChangeView
 from django.contrib.auth.password_validation import validate_password
 from django.contrib.messages.views import SuccessMessageMixin
+from django.conf import settings
+
+substitution_key = settings.KEY
 
 # Create your views here.
 
@@ -15,6 +18,29 @@ def index_view(request):
     context = {}
     # return HttpResponse("HELLO")
     return render(request, "Password_Manager/index.html", context = context)
+
+def encrypt(message, key):
+    encrypted_message = ""
+    for char in message:
+        if char.lower() in key:
+            encrypted_message += key[char.lower()]
+        else:
+            encrypted_message += char
+    return encrypted_message
+
+# Define a function to decrypt the message
+def decrypt(message, key):
+    decrypted_message = ""
+    for char in message:
+        if char.lower() in key.values():
+            for k, v in key.items():
+                if v == char.lower():
+                    decrypted_message += k
+        else:
+            decrypted_message += char
+    return decrypted_message
+
+
 
 @login_required
 def password_view(request):
@@ -24,17 +50,20 @@ def password_view(request):
         # print("TWO")
         if form.is_valid():
             # print("THREE")
+            
             link = form.cleaned_data['link']
             account = form.cleaned_data['account']
             password = form.cleaned_data['password']
             user = request.user
+            password = encrypt(password, substitution_key)
             Password.objects.create(website=link, username=account, password=password, user=user)
             return redirect(reverse('Password_Manager:passwords'))
     user = request.user.pk
     name = request.user.username
     passwords = Password.objects.filter(user=user)
-    # print(passwords)
-    # print("WTF")
+    for i in passwords:
+        i.password = decrypt(i.password, substitution_key)
+
     return render(request, "Password_Manager/passwords.html", context = {'passwords': passwords, 'user':name.capitalize(), 'password_form': forms.password_form, 'userID':user})
 
 
@@ -43,7 +72,6 @@ def about_view(request):
 
 
 # def login_view(request):
-    # print("WHAAA")
     # if request.POST:
     #     username = request.POST.get('username').lower()
     #     password = request.POST.get('password')
@@ -115,6 +143,9 @@ def logout_view(request):
 
 def thankyou_view(request):
     return render(request, 'Password_Manager/thankyou.html')
+
+def comingsoon(request):
+    return render(request, 'Password_manager/comingsoon.html')
 
 
 
