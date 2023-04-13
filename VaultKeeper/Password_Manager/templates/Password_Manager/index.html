@@ -1,23 +1,51 @@
 {% extends 'Password_Manager/base.html' %}
 {% block content %}
+{% load static %}
 
-<body style = "background-color:#e1e6e2">
+<body style="background-color:#e1e6e2">
   
-  <div class="container-fluid p-5" style="width: 100% ; background-color:#212629;">
-    <h1 class="display-4" style="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: white;">Experience peace of mind <br> with our easy-to-use, secure <br> password manager.</h1>
-    {% if request.user.is_authenticated %}
-        <p class="lead" style = "font-family: 'Josefin Sans', sans-serif; font-weight:400; color: #c8c7cd;">You are logged in</p>
-    {% else %}
-        <p class="lead" style = "font-family: 'Josefin Sans', sans-serif; font-weight:400; color: #c8c7cd;">Log in to start!</p>
-    {% endif %}
-
-    <hr class="my-4">
-    <button type="button" class="btn" style="background-color:#e1e6e2; font-family: 'Josefin Sans', sans-serif; font-weight:400; color: black;">Vault Keeper Plus</button>
-    <br><br><button type="button" class="btn" style="background-color:#e1e6e2; font-family: 'Josefin Sans', sans-serif; font-weight:400; color: black;"> About us </button>
-
-     
+  <div class="container-fluid p-5" style="background-color:#212629;">
+    <div class="row">
+      <div class="col-md-8">
+        <h1 class="display-4" style="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: white;">Experience peace of mind <br> with our easy-to-use, secure <br> password manager.</h1>
+        {% if request.user.is_authenticated %}
+          <p class="lead" style="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: #c8c7cd;">You are logged in</p>
+        {% else %}
+          <p class="lead" style="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: #c8c7cd;">Log in to start!</p>
+        {% endif %}
+  
+        <hr class="my-4">
+        <button type="button" class="btn" style="background-color:#e1e6e2; font-family: 'Josefin Sans', sans-serif; font-weight:400; color: black;"> <a href="{% url 'Password_Manager:comingsoon'%}" style="text-decoration:none; color:black">Vault Keeper Plus</a></button>
+        <br><br>
+        <br><br>
+      </div>
+      <div class="col-md-4">
+        <h1 style="color:white">Need password ideas?</h1>
+        <button type="button" class="btn" onclick="generatePassword()" style="background-color:#e1e6e2; font-family: 'Josefin Sans', sans-serif; font-weight:400; color: black;">Generate Password</button>
+        <br>
+        <textarea id="password" readonly style="width: 35%; height: 35px; font-family: 'Josefin Sans', sans-serif; font-weight:400; color: black;"></textarea>
+      </div>
+    </div>
+  
+    <button type="button" class="btn" style="background-color:#e1e6e2; font-family: 'Josefin Sans', sans-serif; font-weight:400; color: black;"> <a href="{% url 'Password_Manager:about' %}" style="text-decoration:none; color:black">About us</a> </button>
+  
     <p></p>
   </div>
+  
+  <script>
+    function generatePassword() {
+      var password = '';
+      var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[{]}\\|;:\'",<.>/?';
+      var length = 28;
+  
+      for (var i = 0; i < length; i++) {
+        password += characters.charAt(Math.floor(Math.random() * characters.length));
+      }
+      document.getElementById('password').value = password;
+    }
+  </script>
+  
+
 
   <br><br><br>
 
@@ -38,26 +66,30 @@
 
     <div class="row mx-md-n5">
       <div class="col px-md-5">
-      <div class="p-3" style = "height:460px; background-color:#212629">
-      <h1 class="my-4; text-center" style="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: white;">EASY</h1>
-      <br><br><br><br><br><br><br><br><br><br><br><p class ="text-center" style ="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: #c8c7cd;" => Vault Keeper's user-friendly interface and intuitive 
-        design makes it easy for you to navigate and manage your passwords, and our password generator makes it easy to create strong, unique passwords for each account.
-      </p>
-      </div></div>
-
+        <div class="p-3" style="height:460px; background-color:#212629">
+          <h1 class="my-4; text-center" style="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: white;">EASY</h1>
+          <img src="{% static 'images/finger.jpg' %}" style="display:block; margin:auto; max-width:38%; height:auto;" alt="Finger">
+          <p class="text-center" style="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: #c8c7cd;"> Vault Keeper's user-friendly interface and intuitive design makes it easy for you to navigate and manage your passwords, and our password generator makes it easy to create strong, unique passwords for each account.
+          </p>
+        </div>
+      </div>
       <div class="col px-md-5">
-      <div class="p-3" style = "height:460px; background-color:#212629">
-      <h1 class="my-4; text-center" style="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: white;">SECURE</h1>
-      <br><br><br><br><br><br><br><br><br><br><br><p class ="text-center" style ="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: #c8c7cd;" => Vault Keeper uses the fernet encryption to protect your passwords and other sensitive information, making it virtually impossible for hackers to access your data.</p>
-      </div></div>
-
+        <div class="p-3" style="height:460px; background-color:#212629">
+          <h1 class="my-4; text-center" style="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: white;">SECURE</h1>
+          <img src="{% static 'images/secure.jpg' %}" style="display:block; margin:auto; max-width:38%; height:auto;" alt="Finger">
+          <p class="text-center" style="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: #c8c7cd;"> Vault Keeper uses the substitution encryption to protect your passwords and other sensitive information, making it virtually impossible for hackers to access your data.</p>
+        </div>
+      </div>
+    
       <div class="col px-md-5">
-      <div class="p-3" style = "height:460px; background-color:#212629">
-      <h1 class="my-4; text-center" style="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: white;">RELIABLE</h1>
-      <br><br><br><br><br><br><br><br><br><br><br><p class ="text-center" style ="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: #c8c7cd;" => Vault Keeper's advanced encryption algorithms ensure that your passwords are secure and protected from hackers and other malicious actors.</p>
-      </div></div>
-
+        <div class="p-3" style="height:460px; background-color:#212629">
+          <h1 class="my-4; text-center" style="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: white;">RELIABLE</h1>
+          <img src="{% static 'images/reliable.jpg' %}" style="display:block; margin:auto; max-width:38%; height:auto;" alt="Finger">
+          <p class="text-center" style="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: #c8c7cd;"> Vault Keeper's advanced encryption algorithms ensure that your passwords are secure and protected from hackers and other malicious actors.</p>
+        </div>
+      </div>
     </div>
+    
     
     <br><br><br>
 
@@ -65,8 +97,10 @@
       <h1 class="display-4 text-center" style="font-family: 'Josefin Sans', sans-serif; font-weight:400; color: white;">Protecting your privacy and securing your digital life, one password at a time.</h1>
       <p class="lead"></p>
       <hr class="my-4">
-      <h2 class="my-4" style = "font-family: 'Josefin Sans', sans-serif; font-weight:400; color: #c8c7cd; font-size: 1.5em">Reach out to us!</h2>
-      <p class="text-center" style = "font-family: 'Josefin Sans', sans-serif; font-weight:400; color: #c8c7cd; font-size: 2em"> //instagram or email or discord logo</p>   
+      <h2 class="my-4" style = "font-family: 'Josefin Sans', sans-serif; font-weight:400; color: #c8c7cd; font-size: 1.5em">Reach out to us!<a href="https://www.instagram.com/"><img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" style="height:30px; padding-left:10px" alt="Instagram logo"></a></h2>
+      
+      
+      
       <p class = "text-center">&copy Vault Keeper 2023</p>
       </div>
     </body>
